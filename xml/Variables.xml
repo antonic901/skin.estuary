@@ -339,6 +339,11 @@
 		<value condition="Container.Content(episodes)">$LOCALIZE[20343]</value>
 		<value>$LOCALIZE[3]</value>
 	</variable>
+	<variable name="BreadcrumbsProgramVar">
+		<value condition="Container.Content(games) | String.StartsWith(container.folderpath,library://program/games/) | String.StartsWith(container.folderpath,programdb://games)">$LOCALIZE[38928]</value>
+		<value condition="Container.Content(apps) | String.StartsWith(container.folderpath,library://program/apps/) | String.StartsWith(container.folderpath,programdb://apps)">$LOCALIZE[38932]</value>
+		<value>$LOCALIZE[0]</value>
+	</variable>
 	<variable name="BreadcrumbsPVRChannelsVar">
 		<value condition="Window.IsActive(TVChannels)">$LOCALIZE[19020] / $LOCALIZE[19019] / $INFO[Control.GetLabel(29)]</value>
 		<value>$LOCALIZE[19021] / $LOCALIZE[19019] / $INFO[Control.GetLabel(29)]</value>
