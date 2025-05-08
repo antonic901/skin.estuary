@@ -1,7 +1,7 @@
 @echo off
 ECHO ----------------------------------------
 echo Creating Estuary Build Folder
-rmdir BUILD /S /Q
+if exist BUILD rmdir BUILD /S /Q
 md BUILD
 
 Echo .svn>exclude.txt
@@ -13,7 +13,7 @@ Echo exclude.txt>>exclude.txt
 
 ECHO ----------------------------------------
 ECHO Creating XPR File...
-START /B /WAIT ..\..\Tools\XBMCTex\XBMCTex -input media -output media -noprotect
+START /B /WAIT C:\XBMCTex\XBMCTex -input media -output media -noprotect
 
 ECHO ----------------------------------------
 ECHO Copying XPR File...
@@ -36,6 +36,6 @@ xcopy "language" "BUILD\skin.estuary\language" /E /Q /I /Y /EXCLUDE:exclude.txt
 
 del exclude.txt
 
-copy *.xml "BUILD\skin.estuary\"
-copy *.txt "BUILD\skin.estuary\"
-copy *.png "BUILD\skin.estuary\"
+if exist *.xml copy *.xml "BUILD\skin.estuary\"
+if exist *.txt copy *.txt "BUILD\skin.estuary\"
+if exist *.png copy *.png "BUILD\skin.estuary\"
